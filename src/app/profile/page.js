@@ -1,7 +1,21 @@
+'use client'
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from 'react'
 
 export default function Profile() {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3000/api/medicine?userid=1&filter=true')
+            .then((res) => res.json())
+            .then((data) => {
+                setData(data);
+                console.log(data);
+                console.log(data[0]?.image);
+            })
+    }, []);
     const findDay = (day) => {
         const todayDate = new Date();
         const dayOfWeek = todayDate.getDay();
@@ -22,8 +36,10 @@ export default function Profile() {
                 <div className="flex flex-row gap-[10px]">
                     <div
                         id="profilePic"
-                        className="w-[81px] h-[81px] rounded-full inline-flex bg-[#C9ECCA] mt-1 mr-2"
-                    ></div>
+                        className="flex w-[81px] h-[81px] justify-center items-center"
+                    >
+                        <Image src="/profilepics/1.jpg" alt="blood" width={200} height={200} className="rounded-full" />
+                    </div>
                     <div className="flex flex-col gap-1">
                         <span className="font-bold text-[21px]">My Profile</span>
                         <div className="flex flex-col text-[#273B7A] text-[14px]">
@@ -125,21 +141,26 @@ export default function Profile() {
                     className="flex flex-col bg-[#FFFFFF] gap-2.5 py-[16px] px-[9px] rounded-[5px] drop-shadow-md"
                 >
                     <div className="flex flex-row">
-                        <Image src="/drugsample.svg" alt="blood" width={70} height={70} />
+                        <Image
+                            src={data[0]?.image || "/xxx.jpg"}
+                            alt="blood"
+                            width={70}
+                            height={70}
+                        />
                         <div className="flex flex-col grow">
                             <span className="text-[18px] font-bold bottom-0">
-                                LEVOTHYROXINE
+                                {data[0]?.name}
                             </span>
                             <div className="flex flex-col gap-2.5">
                                 <div className="flex flex-row gap-2 leading-3">
                                     <span className="text-[15px] font-semibold text-[#868C8C]">
-                                        Euthyrox
+                                        {data[0]?.alias}
+
                                     </span>
                                     <span className="text-[12px] text-[#868C8C] font-semibold">
-                                        25 mcg
+                                        {data[0]?.qty}
                                     </span>
                                 </div>
-                                {/* <span className="font-semibold">After breakfast</span> */}
                             </div>
                         </div>
                     </div>

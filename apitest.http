@@ -1,0 +1,21 @@
+# POST https://localhost:3000/users/ HTTP/1.1
+# content-type: application/json
+
+# {
+#     "name": "sample",
+#     "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+# }
+
+POST http://localhost:3000/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "user_id": 1,
+    "username": "oat123",
+    "birth_date": "1990-01-01T00:00:00.000Z",
+    "medication": [],
+    "tasks": ["Task1", "Task2"]
+}
+
+GET http://localhost:3000/api/users
+content-type: application/json
