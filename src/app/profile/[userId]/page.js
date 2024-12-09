@@ -3,19 +3,38 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
+import Username from "@/app/ambulance/page";
 
 export default function Profile() {
     const [data, setData] = useState([]);
+    const [user, setUser] = useState(null)
+    const path = usePathname()
 
-    useEffect(() => {
-        fetch('http://localhost:3000/api/medicine?userid=1&filter=true')
-            .then((res) => res.json())
-            .then((data) => {
-                setData(data);
-                console.log(data);
-                console.log(data[0]?.image);
-            })
-    }, []);
+    // useEffect(() => {
+    //     fetch('http://localhost:3000/api/medicine?userid=1&filter=true')
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             setData(data);
+    //             console.log(data);
+    //             console.log(data[0]?.image);
+    //         })
+    // }, []);
+    // useEffect(() => {
+    //     const userIdMatch = path.match(/\/profile\/(\d+)/);
+    //     const userId = userIdMatch ? userIdMatch[1] : null;
+
+    //     if (userId) {
+    //         fetch(`http://localhost:3000/api/users?userid=${userId}`)
+    //             .then((res) => res.json())
+    //             .then((data) => {
+    //                 setUser(data[0]);
+    //             })
+    //             .catch((error) => {
+    //                 console.error('Error fetching user:', error);
+    //             });
+    //     }
+    // }, [path]);
     const findDay = (day) => {
         const todayDate = new Date();
         const dayOfWeek = todayDate.getDay();
@@ -38,12 +57,13 @@ export default function Profile() {
                         id="profilePic"
                         className="flex w-[81px] h-[81px] justify-center items-center"
                     >
-                        <Image src="/profilepics/1.jpg" alt="blood" width={200} height={200} className="rounded-full" />
+                        <Image src="/profilepics/1.jpeg" alt="blood" width={200} height={200} className="rounded-full" />
                     </div>
                     <div className="flex flex-col gap-1">
                         <span className="font-bold text-[21px]">My Profile</span>
                         <div className="flex flex-col text-[#273B7A] text-[14px]">
-                            <span className="leading-3">username: hellokitty123</span>
+                            <span className="leading-3">username: PitchayaOat</span>
+                            {/* <span className="leading-3">username: {user?.username}</span> */}
                             <span>age: 81</span>
                         </div>
                     </div>
@@ -63,7 +83,7 @@ export default function Profile() {
                     </div>
                     <div className="pl-1.5 bg-[#DCF2FA] rounded-[5px] flex flex-row gap-1.5 py-[2px]">
                         <Image src="/walk.svg" alt="blood" width={11} height={14} />
-                        <span className="pr-[150px] text-medium text-[12px]">Go for a walk</span>
+                        <span className="pr-[10px] text-medium text-[12px]">Go for a walk</span>
                         <Image
                             src="/right.svg"
                             alt="right"
@@ -78,19 +98,19 @@ export default function Profile() {
                     </div>
                 </div>
 
-                <div id="reminder" className="flex flex-row justify-between">
+                <div id="reminder" className="flex flex-row gap-[4px]">
                     <Link href="/medicine">
                         <div className="flex flex-col items-center mr-[4px]">
                             <Image src="/my_medicine.svg" alt="blood" width={81} height={81} />
-                            <span className="text-[13px] font-bold text-[#273B7A]">
+                            <span className="text-[9px] font-bold text-[#273B7A]">
                                 My Medicine
                             </span>
                         </div>
                     </Link>
-                    <Link href="/medicine">
+                    <Link href="/checkup">
                         <div className="flex flex-col items-center">
                             <Image src="/checkup.svg" alt="blood" width={81} height={81} />
-                            <span className="text-[13px] font-bold text-[#273B7A]">
+                            <span className="text-[9px] font-bold text-[#273B7A]">
                                 Check up
                             </span>
                         </div>
@@ -98,7 +118,7 @@ export default function Profile() {
                     <Link href="/medicine">
                         <div className="flex flex-col items-center">
                             <Image src="/compartment.svg" alt="blood" width={81} height={81} />
-                            <span className="text-[12px] font-bold text-[#273B7A]">
+                            <span className="text-[8.5px] font-bold text-[#273B7A]">
                                 Compartments
                             </span>
                         </div>
@@ -142,23 +162,27 @@ export default function Profile() {
                 >
                     <div className="flex flex-row">
                         <Image
-                            src={data[0]?.image || "/xxx.jpg"}
+                            // src={data[0]?.image || "/xxx.jpg"}
+                            src={"/metformin.jpg"}
                             alt="blood"
-                            width={70}
-                            height={70}
+                            width={95}
+                            height={95}
                         />
                         <div className="flex flex-col grow">
                             <span className="text-[18px] font-bold bottom-0">
-                                {data[0]?.name}
+                                {/* {data[0]?.name} */}
+                                Metformin
                             </span>
                             <div className="flex flex-col gap-2.5">
                                 <div className="flex flex-row gap-2 leading-3">
                                     <span className="text-[15px] font-semibold text-[#868C8C]">
-                                        {data[0]?.alias}
+                                        {/* {data[0]?.alias} */}
+                                        Metformin Hydrochloride
 
                                     </span>
                                     <span className="text-[12px] text-[#868C8C] font-semibold">
                                         {data[0]?.qty}
+                                        500 mg
                                     </span>
                                 </div>
                             </div>

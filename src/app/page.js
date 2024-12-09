@@ -11,7 +11,7 @@ export default function Home() {
         height={10}
         className="transition-transform"
       />
-      <Link href="/profile" className="text-3xl bg-[#DCF2F9] px-[300px] rounded-[30px] text-[#273B7A] hover:bg-white border-2 border-[#DCF2F9] hover:border-[#273B7A]">
+      <Link href="/profile/1" className="text-[20px] bg-[#DCF2F9] px-[250px] rounded-[30px] text-[#273B7A] hover:bg-white border-2 border-[#DCF2F9] hover:border-[#273B7A]">
         Start now
       </Link>
     </div>

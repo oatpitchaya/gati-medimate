@@ -65,17 +65,18 @@ export default function Schecdule({ show, setShow }) {
                         <div className="font-bold text-[25px] leading-4 focus:outline-none focus:ring-0 outline-none border-none">
                             <input type="text" className="bg-[#FFFAF6] border-0 outline-0 border-none focus:outline-none focus:ring-0" placeholder="name" />
                         </div>
-                        <div className="flex flex-row gap-[10px]">
-                            <span className="font-bold text-[18px] text-[#868C8C]">
-                                <input type="text" className="bg-[#FFFAF6] w-[13px] border-0 outline-0 border-none focus:outline-none focus:ring-0" placeholder="name" />
-                            </span>
-                            <span className="font-medium text-[14px] leading-7 text-[#868C8C]">
-                                <input type="number" className="bg-[#FFFAF6] border-0 outline-0 border-none focus:outline-none focus:ring-0 p-0" placeholder="quantity" />
-                            </span>
+                        <div className="flex flex-row">
+                            <div className="">
+                                    <input type="text" className="bg-[#FFFAF6] w-[14px] border-0 outline-0 border-none focus:outline-none focus:ring-0" placeholder="alias" />
+                            </div>
+                            <div className="font-medium text-[14px] leading-7 text-[#868C8C]">
+                                    <input type="number" className="bg-[#FFFAF6] border-0 outline-0 border-none focus:outline-none focus:ring-0 p-0" placeholder="quantity" />
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-row gap-2">
+                <div className="flex flex-row gap-[25px]">
                     <button className="flex flex-row bg-[#FFFAF6] rounded-[15px] pr-[10px] pl-[15px] items-center border-[1px] border-black"
                         onClick={() => (setShowCalendarStart(!showCalendarStart))}>
                         <div className="flex flex-row rounded-[15px] gap-[10px] items-center">

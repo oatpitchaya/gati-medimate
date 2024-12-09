@@ -5,17 +5,118 @@ import Schecdule from "../../../components/schecdule";
 
 
 export default function Username() {
-    const [data, setData] = useState([]);
+    let data = [
+        {
+            "name": "Metformin",
+            "alias": "Metformin Hydrochloride",
+            "qty": "500 mg",
+            "image": "/metformin.jpg",
+            "time": [
+                {
+                    "date": {
+                        "$date": "2024-11-14T12:57:00.000Z"
+                    },
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "6735b3020b1570e22273a6c5"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "6735b3020b1570e22273a6c4"
+            }
+        },
+        {
+            "name": "Tolperisone",
+            "alias": "Tolperisone Hydrochloride",
+            "qty": "1000 mg",
+            "image": "/medpics/tolperisone.jpg",
+            "time": [
+                {
+                    "date": {
+                        "$date": "2024-11-14T12:57:00.000Z"
+                    },
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "6735b3020b1570e22273a6c5"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "6735b3020b1570e22273a6c4"
+            }
+        },
+        {
+            "name": "Gofen",
+            "alias": "ibuprofen",
+            "qty": "1000 mg",
+            "image": "/medpics/gofen.jpg",
+            "time": [
+                {
+                    "date": {
+                        "$date": "2024-11-14T12:57:00.000Z"
+                    },
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "6735b3020b1570e22273a6c5"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "6735b3020b1570e22273a6c4"
+            }
+        },
+        {
+            "name": "Amoxicillin",
+            "alias": "Amoxicillin Trihydrate",
+            "qty": "1000 mg",
+            "image": "/medpics/amoxicillin.png",
+            "time": [
+                {
+                    "date": {
+                        "$date": "2024-11-14T12:57:00.000Z"
+                    },
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "6735b3020b1570e22273a6c5"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "6735b3020b1570e22273a6c4"
+            }
+        },
+        {
+            "name": "Amlonaze-5",
+            "alias": "Amlodipine besylate",
+            "qty": "200 mg",
+            "image": "/medpics/amlonaze.jpeg",
+            "time": [
+                {
+                    "date": {
+                        "$date": "2024-11-14T12:57:00.000Z"
+                    },
+                    "status": "pending",
+                    "_id": {
+                        "$oid": "6735b3020b1570e22273a6c5"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "6735b3020b1570e22273a6c4"
+            }
+        },
+    ]
 
-    useEffect(() => {
-        fetch('http://localhost:3000/api/medicine?userid=1&filter=true')
-        // fetch('http://localhost:3000/api/medicine?userid=1')
-            .then((res) => res.json())
-            .then((data) => {
-                setData(data);
-                console.log(data);
-            })
-    }, []);
+    // useEffect(() => {
+    //     fetch('http://localhost:3000/api/medicine?userid=1&filter=true')
+    //     // fetch('http://localhost:3000/api/medicine?userid=1')
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             setData(data);
+    //             console.log(data);
+    //         })
+    // }, []);
 
     const findDay = (day) => {
         const todayDate = new Date();

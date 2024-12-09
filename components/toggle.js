@@ -2,7 +2,7 @@ import '../src/app/globals.css'
 
 export default function Toggle( {setShowRepeat} ) {
     const handleToggle = (e) => {
-        setShowRepeat(e.target.checked); // Update showRepeat based on checkbox state
+        setShowRepeat(e.target.checked);
     };
     return (
         <>
